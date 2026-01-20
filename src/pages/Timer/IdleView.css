@@ -1,8 +1,12 @@
 .idle {
   width: 100%;
-  display: grid;
-  place-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 22px;
+  min-height: 0;
 }
 
 /* The card/panel that holds the timer */
@@ -11,7 +15,7 @@
   background: rgba(0, 0, 0, 0.06);
   border-radius: 14px;
   padding: 24px 26px 20px;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
 }
 
 /* Top row: two small preset buttons */
@@ -96,7 +100,7 @@
 }
 
 .idle__addTask:hover {
-  background: rgba(0, 0, 0, 0.10);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .idle__addIcon {
