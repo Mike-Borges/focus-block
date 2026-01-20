@@ -1,6 +1,7 @@
 .footer {
   width: 100%;
   height: 80px;
+  background-color: #f3f3f3;
 }
 
 .footer__inner {

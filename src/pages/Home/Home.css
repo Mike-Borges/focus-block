@@ -1,0 +1,112 @@
+.home {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Section */
+.home__hero {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 650px;
+  background-image: url("../../assets/home.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+}
+
+.home__title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  color: #0b1b22;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px 40px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+.home__cta {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0b1b22;
+  background: rgba(90, 170, 205, 0.9);
+  border: 0;
+  border-radius: 50px;
+  padding: 16px 48px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.home__cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.home__cta:active {
+  transform: translateY(0);
+}
+
+/* Description Section */
+.home__description {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.home__description p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Types of Focus Section */
+.home__types {
+  width: 100%;
+  padding: 60px 40px;
+  background: #f8f8f8;
+}
+
+.home__types-title {
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 60px 0;
+  color: #0b1b22;
+}
+
+.home__cards {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Quote Section */
+.home__quote {
+  width: 100%;
+  padding: 80px 40px;
+  text-align: center;
+  background: rgba(90, 170, 205, 0.15);
+}
+
+.home__quote p {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  color: #0b1b22;
+  max-width: 800px;
+  margin: 0 auto;
+  font-style: italic;
+}
