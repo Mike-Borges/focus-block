@@ -22,14 +22,12 @@ function normalizeInitial(initialMinutes) {
  */
 function IdleView({ initialMinutes = 25, onStart, onAddTask }) {
   const [selectedMinutes, setSelectedMinutes] = useState(
-    normalizeInitial(initialMinutes)
+    normalizeInitial(initialMinutes),
   );
 
   // Always derive + sort the small presets
   const smallMinutes = useMemo(() => {
-    return PRESETS
-      .filter((m) => m !== selectedMinutes)
-      .sort((a, b) => a - b);
+    return PRESETS.filter((m) => m !== selectedMinutes).sort((a, b) => a - b);
   }, [selectedMinutes]);
 
   const handleStart = () => {
@@ -72,7 +70,7 @@ function IdleView({ initialMinutes = 25, onStart, onAddTask }) {
 
       <button type="button" className="idle__addTask" onClick={handleAddTask}>
         <span className="idle__addIcon" aria-hidden="true">
-          ⊕
+          +
         </span>
         Add task
       </button>
