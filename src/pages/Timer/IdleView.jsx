@@ -15,36 +15,22 @@ function normalizeInitial(initialMinutes) {
 /**
  * IdleView (Desktop-Home Idle)
  * UI behavior:
- * - Two small buttons at top (left/right)
  * - One large selected time in the middle
- * - Clicking a small button swaps it with the large selected time
- * - Start triggers onStart(selectedMinutes)
+ * - Two small buttons showing the remaining presets
+ * - Small buttons are ALWAYS shown in numeric order
+ * - Clicking a small button makes it the selected time
  */
 export default function IdleView({ initialMinutes = 25, onStart, onAddTask }) {
-  const initialSelected = normalizeInitial(initialMinutes);
+  const [selectedMinutes, setSelectedMinutes] = useState(
+    normalizeInitial(initialMinutes)
+  );
 
-  //   smallLeft = 15, smallRight = 45, selected = 25
-  const initialSmall = useMemo(() => {
-    const remaining = PRESETS.filter((m) => m !== initialSelected);
-    // For this project we expect exactly 2 remaining presets
-    return [remaining[0], remaining[1]];
-  }, [initialSelected]);
-
-  const [selectedMinutes, setSelectedMinutes] = useState(initialSelected);
-  const [smallMinutes, setSmallMinutes] = useState(initialSmall); // [left, right]
-
-  const handleSmallClick = (index) => {
-    const clicked = smallMinutes[index];
-    if (clicked === selectedMinutes) return;
-
-    // Swap: clicked small -> becomes selected, previous selected -> goes into clicked slot
-    setSmallMinutes((prev) => {
-      const next = [...prev];
-      next[index] = selectedMinutes;
-      return next;
-    });
-    setSelectedMinutes(clicked);
-  };
+  // Always derive + sort the small presets
+  const smallMinutes = useMemo(() => {
+    return PRESETS
+      .filter((m) => m !== selectedMinutes)
+      .sort((a, b) => a - b);
+  }, [selectedMinutes]);
 
   const handleStart = () => {
     if (typeof onStart === "function") {
@@ -62,23 +48,17 @@ export default function IdleView({ initialMinutes = 25, onStart, onAddTask }) {
     <section className="idle">
       <div className="idle__panel">
         <div className="idle__topRow" role="group" aria-label="Timer presets">
-          <button
-            type="button"
-            className="idle__pill"
-            onClick={() => handleSmallClick(0)}
-            aria-label={`Select ${smallMinutes[0]} minutes`}
-          >
-            {formatMMSS(smallMinutes[0])}
-          </button>
-
-          <button
-            type="button"
-            className="idle__pill"
-            onClick={() => handleSmallClick(1)}
-            aria-label={`Select ${smallMinutes[1]} minutes`}
-          >
-            {formatMMSS(smallMinutes[1])}
-          </button>
+          {smallMinutes.map((minutes) => (
+            <button
+              key={minutes}
+              type="button"
+              className="idle__pill"
+              onClick={() => setSelectedMinutes(minutes)}
+              aria-label={`Select ${minutes} minutes`}
+            >
+              {formatMMSS(minutes)}
+            </button>
+          ))}
         </div>
 
         <div className="idle__selected" aria-live="polite">
