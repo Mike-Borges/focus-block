@@ -1,3 +1,180 @@
-.completed-view {
-    
+.completed {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #d9d9d9;
+}
+
+.completed__main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  background-image: url("/images/Confetti.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0 0 60px;
+}
+
+.completed__content {
+  width: 1440px;
+  max-width: 100%;
+  text-align: center;
+  padding: 0 24px;
+  padding-top: 135px;
+}
+
+.completed__timer {
+  width: 610px;
+  height: 250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", cursive;
+  font-size: 160px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 14px 12px 0 rgba(80, 210, 255, 0.35);
+}
+
+.completed__title {
+  margin: -17px 0 0; 
+  font-family: "Italianno", cursive;
+  font-size: 120px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+
+  color: #000000;
+}
+
+.completed__subtitle {
+  margin: 46px 0 0;
+
+  font-family: "Marko One", serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 56px;
+  letter-spacing: -0.015em;
+
+  color: #ffffff;
+}
+
+.completed__meta {
+  margin: 25px 0 0;
+
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 56px;
+  letter-spacing: -0.015em;
+
+  color: #000000;
+}
+
+.completed__button {
+  margin: 32px auto 0;
+  width: 300px;
+  height: 45px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Marko One", serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 44px;
+  letter-spacing: -0.015em;
+
+  color: #000000;
+
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  border-radius: 22px;
+  background: rgba(173, 224, 240, 0.55);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.completed__button:hover {
+  transform: translateY(-1px);
+}
+
+.completed__button:active {
+  transform: translateY(0px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .completed__content {
+    padding-top: 90px;
+  }
+
+  .completed__timer {
+    width: 520px;
+    height: 220px;
+    font-size: 130px;
+  }
+
+  .completed__title {
+    font-size: 96px;
+  }
+
+  .completed__subtitle {
+    font-size: 34px;
+    line-height: 48px;
+  }
+
+  .completed__meta {
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .completed__button {
+    font-size: 26px;
+    line-height: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .completed__content {
+    padding-top: 70px;
+  }
+
+  .completed__timer {
+    width: 360px;
+    height: 170px;
+    font-size: 92px;
+    text-shadow: 10px 9px 0 rgba(80, 210, 255, 0.32);
+  }
+
+  .completed__title {
+    font-size: 74px;
+    margin-top: -10px;
+  }
+
+  .completed__subtitle {
+    margin-top: 28px;
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .completed__meta {
+    margin-top: 18px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .completed__button {
+    width: 260px;
+    height: 44px;
+    font-size: 20px;
+    line-height: 28px;
+  }
 }

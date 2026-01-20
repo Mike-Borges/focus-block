@@ -20,7 +20,7 @@ function normalizeInitial(initialMinutes) {
  * - Small buttons are ALWAYS shown in numeric order
  * - Clicking a small button makes it the selected time
  */
-export default function IdleView({ initialMinutes = 25, onStart, onAddTask }) {
+function IdleView({ initialMinutes = 25, onStart, onAddTask }) {
   const [selectedMinutes, setSelectedMinutes] = useState(
     normalizeInitial(initialMinutes)
   );
@@ -79,3 +79,4 @@ export default function IdleView({ initialMinutes = 25, onStart, onAddTask }) {
     </section>
   );
 }
+export default IdleView;
