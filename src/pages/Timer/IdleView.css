@@ -1,3 +1,105 @@
-.idle-view {
-    
+.idle {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  gap: 22px;
+}
+
+/* The card/panel that holds the timer */
+.idle__panel {
+  width: min(460px, 92vw);
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 24px 26px 20px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+}
+
+/* Top row: two small preset buttons */
+.idle__topRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.idle__pill {
+  flex: 1;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+
+  background: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.idle__pill:hover {
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.idle__pill:active {
+  transform: translateY(1px);
+}
+
+/* Big selected time in the middle */
+.idle__selected {
+  text-align: center;
+  font-size: clamp(52px, 7vw, 82px);
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 8px 0 16px;
+}
+
+/* Start button */
+.idle__start {
+  display: block;
+  width: 180px;
+  margin: 0 auto;
+
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 16px;
+  cursor: pointer;
+
+  background: rgba(90, 170, 205, 0.9);
+  color: #0b1b22;
+  font-weight: 800;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.14);
+}
+
+.idle__start:hover {
+  filter: brightness(1.02);
+}
+
+.idle__start:active {
+  transform: translateY(1px);
+}
+
+/* Add task button under the panel */
+.idle__addTask {
+  width: min(460px, 92vw);
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 16px;
+  cursor: pointer;
+
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 800;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.idle__addTask:hover {
+  background: rgba(0, 0, 0, 0.10);
+}
+
+.idle__addIcon {
+  font-size: 18px;
+  line-height: 1;
 }
