@@ -28,7 +28,15 @@ function App() {
   };
 
   const handleComplete = () => {
+    // came from a timer completion
+    sessionStorage.setItem("fb_confetti", "1");
     setTimerState("completed");
+  };
+
+  const handleNewSession = () => {
+    setTimerState("idle");
+    setSelectedMinutes(null);
+    setCurrentPage("timer");
   };
 
   return (
@@ -57,7 +65,9 @@ function App() {
               />
             )}
 
-            {timerState === "completed" && <CompletedView />}
+            {timerState === "completed" && (
+              <CompletedView onNewSession={handleNewSession} />
+            )}
           </>
         )}
 

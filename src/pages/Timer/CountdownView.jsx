@@ -13,6 +13,8 @@ export default function CountdownView({ initialMinutes, onReset, onComplete }) {
         setSecondsLeft((prev) => {
           if (prev <= 1) {
             clearInterval(intervalRef.current);
+            sessionStorage.setItem("fb_confetti", "1");
+            console.log("set fb_confetti", sessionStorage.getItem("fb_confetti"));
             if (onComplete) onComplete();
             return 0;
           }

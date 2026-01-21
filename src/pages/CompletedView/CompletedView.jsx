@@ -1,20 +1,46 @@
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import "./CompletedView.css";
+import confetti from "canvas-confetti";
+import confettiSound from "../../assets/sounds/horns.wav";
 
-export default function CompletedView() {
-  const navigate = useNavigate();
-
-  // Later you can pass these in as props / state from your app logic
+export default function CompletedView({ onNewSession }) {
   const todaysFocusCount = 5;
   const weeklyFocusCount = 18;
 
+  useEffect(() => {
+    const shouldConfetti = sessionStorage.getItem("fb_confetti") === "1";
+    if (!shouldConfetti) return;
+
+    const audio = new Audio(confettiSound);
+    audio.volume = 0.5;
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+
+    // Clear immediately so refresh/manual visit won't re-trigger
+    sessionStorage.removeItem("fb_confetti");
+
+    confetti({ particleCount: 160, spread: 70, origin: { y: 0.6 } });
+
+    const t1 = setTimeout(() => {
+      confetti({ particleCount: 120, spread: 90, origin: { y: 0.55 } });
+    }, 250);
+
+    const t2 = setTimeout(() => {
+      confetti({ particleCount: 100, spread: 110, origin: { y: 0.5 } });
+    }, 500);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
   const handleNewSession = () => {
-    navigate("/timer");
+    onNewSession?.();
   };
 
   return (
     <section className="completed">
-      {/* Background image should be on the page body area, not header/footer */}
       <div className="completed__main">
         <div className="completed__content">
           <div className="completed__timer">00:00</div>
