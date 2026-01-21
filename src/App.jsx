@@ -40,7 +40,9 @@ function App() {
   };
 
   return (
-    <div className="page">
+    <div
+      className={`page ${timerState === "completed" ? "page--completed" : ""}`}
+    >
       <div className="page__content">
         <Header onNavigate={setCurrentPage} />
 

@@ -133,3 +133,9 @@
 .countdown__btn--reset .countdown__icon {
   font-size: 36px;
 }
+
+@media (max-width: 390px) {
+  .countdown__controls {
+    padding: 0;
+  }
+}

@@ -129,10 +129,12 @@
 }
 
 /* Responsive */
-@media (max-width: 700px) {
+@media (max-width: 390px) {
   .idle__panel {
     padding: 28px 22px 24px;
-    height: auto;
+    width: 350px;
+    min-height: 358px;
+    height: 358px;
   }
   .idle__pill {
     width: 46%;
