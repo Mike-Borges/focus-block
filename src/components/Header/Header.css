@@ -15,12 +15,13 @@
 }
 
 .header__logo {
-  font-size: 32px;
+  font-size: 42px;
   line-height: 1;
   letter-spacing: 0.5px;
   user-select: none;
   white-space: nowrap;
   z-index: 1001;
+  font-family: "Cinzel-VariableFont_wght.ttf", serif;
 }
 
 .header__logoBlack {
@@ -104,7 +105,7 @@
   }
 
   .header__logo {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .header__hamburger {

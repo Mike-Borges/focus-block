@@ -49,10 +49,9 @@ function formatMinutesToSeconds(totalMinutes) {
   return parts.join(" and ");
 }
 
-
 export default function CompletedView({ onNewSession }) {
-  // to avoid ESLint warnings, initialized via lazy useState instead of a 
-  // mount-only useEffect + setState calling synchronously inside effects ("you may not need an UseEffect here") 
+  // to avoid ESLint warnings, initialized via lazy useState instead of a
+  // mount-only useEffect + setState calling synchronously inside effects ("you may not need an UseEffect here")
   const [todaysFocusCount] = useState(() => getTodaysCompletedCount());
   const [weekStats] = useState(() => getThisWeeksStats());
   const [weeklyFocusCount] = useState(() => weekStats.weeklyCount);
@@ -88,7 +87,7 @@ export default function CompletedView({ onNewSession }) {
 
   const todaysOrdinal = useMemo(
     () => formatOrdinal(todaysFocusCount),
-    [todaysFocusCount]
+    [todaysFocusCount],
   );
 
   const handleNewSession = () => {
@@ -113,7 +112,8 @@ export default function CompletedView({ onNewSession }) {
           </p>
 
           <p className="completed__meta">
-            You have a total focused minutes this week of {formatMinutesToSeconds(weeklyFocusMinutes)}! 
+            You have focused a total of{" "}
+            {formatMinutesToSeconds(weeklyFocusMinutes)} this week!
           </p>
 
           <button

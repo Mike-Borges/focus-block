@@ -97,7 +97,7 @@
   color: #000000;
   border: 1px solid rgba(0, 0, 0, 0.22);
   border-radius: 22px;
-  background: #8bcade;
+  background: white;
   box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
   cursor: pointer;
 }
@@ -146,6 +146,6 @@
     height: 40px;
     font-size: 18px;
     line-height: 24px;
-    background: #cccccc;
+    background: white;
   }
 }

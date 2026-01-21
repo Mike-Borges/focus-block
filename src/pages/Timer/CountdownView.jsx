@@ -7,6 +7,7 @@ export default function CountdownView({ initialMinutes, onReset, onComplete }) {
   const [secondsLeft, setSecondsLeft] = useState(totalSeconds);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef(null);
+  const hasCompletedRef = useRef(false);
 
   useEffect(() => {
     if (!isPaused && secondsLeft > 0) {
@@ -15,9 +16,13 @@ export default function CountdownView({ initialMinutes, onReset, onComplete }) {
           if (prev <= 1) {
             clearInterval(intervalRef.current);
             // Persist the completed session (localStorage History )
-            addCompletedSession(initialMinutes);
-            sessionStorage.setItem("fb_confetti", "1");
-            if (onComplete) onComplete();
+            // Use ref to prevent double-counting in React StrictMode
+            if (!hasCompletedRef.current) {
+              hasCompletedRef.current = true;
+              addCompletedSession(initialMinutes);
+              sessionStorage.setItem("fb_confetti", "1");
+              if (onComplete) onComplete();
+            }
             return 0;
           }
           return prev - 1;
