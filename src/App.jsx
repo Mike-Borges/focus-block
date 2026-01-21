@@ -6,6 +6,7 @@ import IdleView from "./pages/Timer/IdleView";
 import CountdownView from "./pages/Timer/CountdownView";
 import CompletedView from "./pages/CompletedView/CompletedView";
 import "./App.css";
+
 function App() {
   const [currentPage, setCurrentPage] = useState("home"); // "home" | "timer" | "completed"
   const [timerState, setTimerState] = useState("idle"); // "idle" | "running" | "completed"
@@ -26,7 +27,15 @@ function App() {
   };
 
   const handleComplete = () => {
+    // came from a timer completion
+    sessionStorage.setItem("fb_confetti", "1");
     setTimerState("completed");
+  };
+
+  const handleNewSession = () => {
+    setTimerState("idle");
+    setSelectedMinutes(null);
+    setCurrentPage("timer");
   };
 
   return (
@@ -53,7 +62,9 @@ function App() {
               />
             )}
 
-            {timerState === "completed" && <CompletedView />}
+            {timerState === "completed" && (
+              <CompletedView onNewSession={handleNewSession} />
+            )}
           </>
         )}
 
