@@ -7,7 +7,7 @@
   align-items: center;
   gap: 22px;
   min-height: 0;
-  background: center / cover no-repeat url(../../assets/idleView.svg);
+  background: center / cover no-repeat url(../../assets/idleView.jpg);
 }
 
 /* The card/panel that holds the timer */
