@@ -11,3 +11,10 @@
   font-weight: 400;
   src: url("./fonts/Inter_24pt-Regular.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "Italianno";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Italianno-Regular.ttf") format("truetype");
+}
