@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./CountdownView.css";
+import { addCompletedSession } from "../../utils/focusStorage";
 
 export default function CountdownView({ initialMinutes, onReset, onComplete }) {
   const totalSeconds = initialMinutes * 60;
@@ -13,6 +14,9 @@ export default function CountdownView({ initialMinutes, onReset, onComplete }) {
         setSecondsLeft((prev) => {
           if (prev <= 1) {
             clearInterval(intervalRef.current);
+            // Persist the completed session (localStorage History )
+            addCompletedSession(initialMinutes);
+            sessionStorage.setItem("fb_confetti", "1");
             if (onComplete) onComplete();
             return 0;
           }
@@ -26,7 +30,7 @@ export default function CountdownView({ initialMinutes, onReset, onComplete }) {
         clearInterval(intervalRef.current);
       }
     };
-  }, [isPaused, secondsLeft, onComplete]);
+  }, [isPaused, secondsLeft, onComplete, initialMinutes]);
 
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);

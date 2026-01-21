@@ -1,11 +1,62 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./CompletedView.css";
 import confetti from "canvas-confetti";
 import confettiSound from "../../assets/sounds/horns.wav";
+import {
+  getTodaysCompletedCount,
+  getThisWeeksStats,
+} from "../../utils/focusStorage";
+
+function formatOrdinal(n) {
+  const num = Number(n);
+  if (!Number.isFinite(num)) return `${n}`;
+
+  const mod100 = num % 100;
+  if (mod100 >= 11 && mod100 <= 13) return `${num}th`;
+
+  switch (num % 10) {
+    case 1:
+      return `${num}st`;
+    case 2:
+      return `${num}nd`;
+    case 3:
+      return `${num}rd`;
+    default:
+      return `${num}th`;
+  }
+}
+
+function formatMinutesToSeconds(totalMinutes) {
+  const totalSeconds = Math.round(totalMinutes * 60);
+
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  const parts = [];
+
+  if (minutes > 0) {
+    parts.push(`${minutes} ${minutes === 1 ? "minute" : "minutes"}`);
+  }
+
+  if (seconds > 0) {
+    parts.push(`${seconds} ${seconds === 1 ? "second" : "seconds"}`);
+  }
+  // Add 'and' for additional seconds
+  if (parts.length === 0) {
+    return "0 seconds";
+  }
+
+  return parts.join(" and ");
+}
+
 
 export default function CompletedView({ onNewSession }) {
-  const todaysFocusCount = 5;
-  const weeklyFocusCount = 18;
+  // to avoid ESLint warnings, initialized via lazy useState instead of a 
+  // mount-only useEffect + setState calling synchronously inside effects ("you may not need an UseEffect here") 
+  const [todaysFocusCount] = useState(() => getTodaysCompletedCount());
+  const [weekStats] = useState(() => getThisWeeksStats());
+  const [weeklyFocusCount] = useState(() => weekStats.weeklyCount);
+  const [weeklyFocusMinutes] = useState(() => weekStats.weeklyMinutes);
 
   useEffect(() => {
     const shouldConfetti = sessionStorage.getItem("fb_confetti") === "1";
@@ -35,6 +86,11 @@ export default function CompletedView({ onNewSession }) {
     };
   }, []);
 
+  const todaysOrdinal = useMemo(
+    () => formatOrdinal(todaysFocusCount),
+    [todaysFocusCount]
+  );
+
   const handleNewSession = () => {
     onNewSession?.();
   };
@@ -48,12 +104,16 @@ export default function CompletedView({ onNewSession }) {
           <h1 className="completed__title">Great Job!!!</h1>
 
           <p className="completed__subtitle">
-            That&apos;s your {todaysFocusCount}th focus session today.
+            That&apos;s your {todaysOrdinal} focus session today.
           </p>
 
           <p className="completed__meta">
             You have successfully completed {weeklyFocusCount} focus sessions in
             this week!
+          </p>
+
+          <p className="completed__meta">
+            You have a total focused minutes this week of {formatMinutesToSeconds(weeklyFocusMinutes)}! 
           </p>
 
           <button
