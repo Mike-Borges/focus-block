@@ -54,6 +54,15 @@
 }
 
 @media (max-width: 390px) {
+  .about__hero {
+    padding: 120px 0 0;
+  }
+  .about__title {
+    font-size: 36px;
+  }
+  .about__subtitle {
+    font-size: 16px;
+  }
   .about__team {
     padding: 0;
     gap: 8px;
