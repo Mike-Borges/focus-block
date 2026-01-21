@@ -5,7 +5,6 @@
   place-items: center;
   padding: 40px 20px;
 
-  /* Background image with dark overlay */
   position: fixed;
   top: 0;
   left: 0;
@@ -25,8 +24,16 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(255, 255, 255, 0.6);
   z-index: 1;
+}
+
+.countdown--paused::before {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.countdown--paused .countdown__time {
+  color: #c75100;
 }
 
 .countdown__container {
@@ -38,7 +45,6 @@
   z-index: 2;
 }
 
-/* Circular Progress Ring */
 .countdown__ring {
   position: relative;
   width: min(400px, 85vw);
@@ -70,23 +76,23 @@
   transition: stroke-dashoffset 0.3s linear;
 }
 
-/* Timer display in center */
 .countdown__time {
   position: absolute;
   font-size: clamp(56px, 12vw, 96px);
   font-weight: 800;
-  color: #4a9d6f;
+  color: #4caf50;
   letter-spacing: 2px;
   text-align: center;
+  font-family: "Poppins-SemiBold", "Inter", sans-serif;
 }
 
-/* Control buttons container */
 .countdown__controls {
   display: flex;
   gap: 20px;
   padding: 20px 30px;
   background: rgba(255, 255, 255, 0.7);
-
+  align-items: center;
+  justify-content: center;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -103,6 +109,7 @@
   font-weight: 700;
   color: rgba(0, 0, 0, 0.8);
   transition: transform 0.15s ease;
+  min-width: 100px;
 }
 
 .countdown__btn:hover {
@@ -119,12 +126,10 @@
   line-height: 1;
 }
 
-/* Pause button icon adjustments */
 .countdown__btn--pause .countdown__icon {
-  font-size: 28px;
+  font-size: 36px;
 }
 
-/* Reset button icon adjustments */
 .countdown__btn--reset .countdown__icon {
   font-size: 36px;
 }
