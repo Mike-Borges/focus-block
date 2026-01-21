@@ -3,6 +3,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  font-family: "Marko One", sans-serif;
 }
 
 /* Hero Section */
@@ -22,10 +23,10 @@
 }
 
 .home__title {
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 700;
-  color: #0b1b22;
-  background: rgba(255, 255, 255, 0.85);
+  font-size: 42px;
+  font-weight: 400;
+  color: black;
+  background: rgba(255, 255, 255, 0.7);
   padding: 20px 40px;
   border-radius: 20px;
   text-align: center;
@@ -33,8 +34,8 @@
 }
 
 .home__cta {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 400;
   color: #0b1b22;
   background: rgba(90, 170, 205, 0.9);
   border: 0;
@@ -45,6 +46,7 @@
   transition:
     transform 0.2s ease,
     filter 0.2s ease;
+  width: 300px;
 }
 
 .home__cta:hover {
@@ -59,7 +61,7 @@
 /* Description Section */
 .home__description {
   max-width: 900px;
-  margin: 60px auto;
+  margin: 32px auto;
   padding: 0 40px;
   text-align: center;
 }
@@ -74,16 +76,15 @@
 /* Types of Focus Section */
 .home__types {
   width: 100%;
-  padding: 60px 40px;
-  background: #f8f8f8;
 }
 
 .home__types-title {
-  font-size: clamp(36px, 4vw, 48px);
+  font-size: 52px;
   font-weight: 700;
   text-align: center;
-  margin: 0 0 60px 0;
-  color: #0b1b22;
+  margin: 8px 0 60px 0;
+  color: #000000;
+  line-height: 54px;
 }
 
 .home__cards {
@@ -92,21 +93,75 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
+  font-family: "inter", sans-serif;
 }
 
-/* Quote Section */
-.home__quote {
-  width: 100%;
-  padding: 80px 40px;
+.home__card {
+  background: rgba(90, 170, 205, 0.9);
+  border-radius: 16px;
+  padding: 40px 30px;
   text-align: center;
-  background: rgba(90, 170, 205, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.home__card-image {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.home__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home__card-title {
+  font-size: 32px;
+  line-height: 56px;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  color: black;
+  background: rgba(90, 170, 205, 0);
+}
+
+.home__card-text {
+  font-size: 16px;
+  line-height: 20px;
+  color: black;
+  margin: 0;
+  font-weight: 400;
+  background: rgba(90, 170, 205, 0);
+}
+
+.home__card-more {
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.home__quote {
+  max-width: 1100px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 40px auto 32px auto;
+  padding: 30px 0;
+  text-align: center;
+  background: rgba(90, 170, 205, 0.4);
+  font-size: 16px;
+  border-radius: 35px;
 }
 
 .home__quote p {
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 600;
-  color: #0b1b22;
-  max-width: 800px;
-  margin: 0 auto;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 56px;
+  max-width: 80%;
+  color: black;
   font-style: italic;
+  background: rgba(90, 170, 205, 0);
 }
