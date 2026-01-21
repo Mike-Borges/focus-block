@@ -42,7 +42,8 @@
 }
 
 .header__link {
-  font-size: 12px;
+  font-size: 16px;
+  line-height: 20px;
   color: #111;
   text-decoration: none;
 }

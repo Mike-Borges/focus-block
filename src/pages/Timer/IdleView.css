@@ -107,4 +107,5 @@
 .idle__addIcon {
   font-size: 18px;
   line-height: 1;
+  background: rgba(90, 170, 205, 0);
 }

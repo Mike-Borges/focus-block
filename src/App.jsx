@@ -2,12 +2,14 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
 import IdleView from "./pages/Timer/IdleView";
 import CountdownView from "./pages/Timer/CountdownView";
 import CompletedView from "./pages/CompletedView/CompletedView";
 import "./App.css";
+
 function App() {
-  const [currentPage, setCurrentPage] = useState("home"); // "home" | "timer" | "completed"
+  const [currentPage, setCurrentPage] = useState("home"); // "home" | "timer" | "about"
   const [timerState, setTimerState] = useState("idle"); // "idle" | "running" | "completed"
   const [selectedMinutes, setSelectedMinutes] = useState(null);
 
@@ -32,9 +34,11 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <Header />
+        <Header onNavigate={setCurrentPage} />
 
         {currentPage === "home" && <Home onGetStarted={handleGetStarted} />}
+
+        {currentPage === "about" && <About />}
 
         {currentPage === "timer" && (
           <>
