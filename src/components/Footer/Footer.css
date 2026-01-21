@@ -49,3 +49,24 @@
 .footer__link:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 390px) {
+  .footer__logo {
+    display: none;
+  }
+
+  .footer__inner {
+    justify-content: center;
+    padding: 16px 20px;
+  }
+
+  .footer__nav {
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 20px;
+  }
+
+  .footer__link {
+    font-size: 12px;
+  }
+}

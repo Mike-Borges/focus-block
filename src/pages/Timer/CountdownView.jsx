@@ -53,7 +53,7 @@ export default function CountdownView({ initialMinutes, onReset, onComplete }) {
   const progress = ((totalSeconds - secondsLeft) / totalSeconds) * 100;
 
   return (
-    <section className="countdown">
+    <section className={`countdown ${isPaused ? "countdown--paused" : ""}`}>
       <div className="countdown__container">
         {/* Circular Progress Ring */}
         <div className="countdown__ring">
@@ -77,8 +77,10 @@ export default function CountdownView({ initialMinutes, onReset, onComplete }) {
             />
           </svg>
 
+          {/* Timer display in the center */}
           <div className="countdown__time">{formatTime(secondsLeft)}</div>
         </div>
+
         {/* Control buttons */}
         <div className="countdown__controls">
           <button

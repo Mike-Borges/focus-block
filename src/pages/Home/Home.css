@@ -12,9 +12,8 @@
   height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 650px;
   background-image: url("../../assets/home.jpg");
   background-size: cover;
   background-position: center;
@@ -164,4 +163,35 @@
   color: black;
   font-style: italic;
   background: rgba(90, 170, 205, 0);
+}
+
+@media (max-width: 390px) {
+  .home__hero {
+    height: 100vh;
+    padding-top: 110px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  .home__title {
+    font-size: 20px;
+    font-weight: 700;
+    background: none;
+    padding: 10px 20px;
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .home__cta {
+    font-size: 18px;
+    width: 180px;
+    padding: 12px 28px;
+    position: absolute;
+    bottom: 120px;
+  }
 }
