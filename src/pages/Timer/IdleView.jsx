@@ -67,13 +67,6 @@ function IdleView({ initialMinutes = 25, onStart, onAddTask }) {
           Start
         </button>
       </div>
-
-      <button type="button" className="idle__addTask" onClick={handleAddTask}>
-        <span className="idle__addIcon" aria-hidden="true">
-          +
-        </span>
-        Add task
-      </button>
     </section>
   );
 }
