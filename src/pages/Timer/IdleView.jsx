@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import "./IdleView.css";
 
-const PRESETS = [0.1, 25, 45];
+const PRESETS = [15, 25, 45];
 
 function formatMMSS(minutes) {
   const mm = String(minutes).padStart(2, "0");

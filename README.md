@@ -85,9 +85,9 @@ TimeKeeper is built around three core focus methodologies:
 - **Macro-Focus**: Maintaining perspective to align micro-focus with overall goals
 - **Atomic Focus**: Laser-focused mastery on very specific elements
 
-## Contributing
+## Deployment
 
-Contributions are welcome! Feel free to submit issues or pull requests.
+[Live Demo](https://mike-borges.github.io/focus-block/)
 
 ## Design Files
 
