@@ -93,7 +93,7 @@ Contributions are welcome! Feel free to submit issues or pull requests.
 
 View the complete design specifications on Figma:
 
-[Desktop/Mobile]https://www.figma.com/design/GJ6lyspcWcv0z3TYrwmGDC/Code-Jam-Team-3--Personal-Focus-Timer?node-id=963-929&t=ZBkXWeZNQgePt1Un-1
+[Desktop/Mobile](https://www.figma.com/design/GJ6lyspcWcv0z3TYrwmGDC/Code-Jam-Team-3--Personal-Focus-Timer?node-id=963-929&t=ZBkXWeZNQgePt1Un-1)
 
 ## Acknowledgments
 
