@@ -89,7 +89,7 @@ export default function CompletedView({ onNewSession }) {
 
   const todaysOrdinal = useMemo(
     () => formatOrdinal(todaysFocusCount),
-    [todaysFocusCount]
+    [todaysFocusCount],
   );
 
   const handleNewSession = () => {
@@ -112,8 +112,8 @@ export default function CompletedView({ onNewSession }) {
             this week!
           </p>
           <p className="completed__meta">
-            You have a total focused minutes this week of{" "}
-            {formatMinutesToSeconds(weeklyFocusMinutes)}!
+            You have focused a total of{" "}
+            {formatMinutesToSeconds(weeklyFocusMinutes)} this week!
           </p>
           <button
             type="button"
