@@ -21,7 +21,7 @@ A modern focus timer application designed to help users maintain deep work sessi
 ## Project Structure
 
 ```
-focus-block/
+TimeKeeper/
 ├── src/
 │   ├── assets/          # Images and static files
 │   ├── components/      # Reusable components
@@ -51,7 +51,7 @@ focus-block/
 
 ```bash
 git clone
-cd focus-block
+cd TimeKeeper
 ```
 
 2. Install dependencies
@@ -87,7 +87,7 @@ TimeKeeper is built around three core focus methodologies:
 
 ## Deployment
 
-[Live Demo](https://mike-borges.github.io/focus-block/)
+[Live Demo](https://mike-borges.github.io/TimeKeeper/)
 
 ## Design Files
 
