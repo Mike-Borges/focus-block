@@ -93,8 +93,7 @@ Contributions are welcome! Feel free to submit issues or pull requests.
 
 View the complete design specifications on Figma:
 
-- [Desktop Version](https://www.figma.com/design/suEHC0M7wTH3FCBLsIViCd/Hi-fi-Desktop-Version--PFT-?node-id=0-1&t=TZ3refc51ZNNQzyB-1)
-- [Mobile Version](https://www.figma.com/design/bLuwMt6X6hxhKlRHx5CSCd/Hi-Fi-Mobile-Version--PFT-?node-id=0-1&t=ethYOQe3HWPxAcPP-1)
+[Desktop/Mobile]https://www.figma.com/design/GJ6lyspcWcv0z3TYrwmGDC/Code-Jam-Team-3--Personal-Focus-Timer?node-id=963-929&t=ZBkXWeZNQgePt1Un-1
 
 ## Acknowledgments
 

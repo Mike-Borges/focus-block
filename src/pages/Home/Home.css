@@ -6,7 +6,6 @@
   font-family: "Marko One", sans-serif;
 }
 
-/* Hero Section */
 .home__hero {
   width: 100%;
   height: 80vh;
@@ -57,7 +56,6 @@
   transform: translateY(0);
 }
 
-/* Description Section */
 .home__description {
   max-width: 900px;
   margin: 32px auto;
@@ -72,7 +70,6 @@
   margin-bottom: 20px;
 }
 
-/* Types of Focus Section */
 .home__types {
   width: 100%;
 }

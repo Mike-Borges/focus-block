@@ -37,7 +37,7 @@ function formatMinutesToSeconds(totalMinutes) {
   if (seconds > 0) {
     parts.push(`${seconds} ${seconds === 1 ? "second" : "seconds"}`);
   }
-  // Add 'and' for additional seconds
+
   if (parts.length === 0) {
     return "0 seconds";
   }
@@ -45,8 +45,6 @@ function formatMinutesToSeconds(totalMinutes) {
 }
 
 export default function CompletedView({ onNewSession }) {
-  // to avoid ESLint warnings, initialized via lazy useState instead of a
-  // mount-only useEffect + setState calling synchronously inside effects ("you may not need an UseEffect here")
   const [todaysFocusCount] = useState(() => getTodaysCompletedCount());
   const [weekStats] = useState(() => getThisWeeksStats());
   const [weeklyFocusCount] = useState(() => weekStats.weeklyCount);
@@ -56,7 +54,6 @@ export default function CompletedView({ onNewSession }) {
   useEffect(() => {
     const shouldConfetti = sessionStorage.getItem("fb_confetti") === "1";
     if (!shouldConfetti) return;
-    // use this instead of useState to remove ESLint error to trigger haptic state
     const el = timerRef.current;
     if (el) {
       el.classList.remove("completed__timer-haptic");
@@ -68,7 +65,6 @@ export default function CompletedView({ onNewSession }) {
     audio.volume = 0.5;
     audio.currentTime = 0;
     audio.play().catch(() => {});
-    // Clear the confetti session so refresh/manual visit won't re-trigger it
     sessionStorage.removeItem("fb_confetti");
     confetti({ particleCount: 160, spread: 70, origin: { y: 0.6 } });
     const t1 = setTimeout(() => {

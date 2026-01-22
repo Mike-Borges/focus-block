@@ -1,14 +1,4 @@
-// src/utils/focusStorage.js
-
 const STORAGE_KEY = "fb_focus_sessions_v1";
-
-/**
- * Session record shape:
- * {
- *   completedAt: string (ISO),
- *   durationMinutes: number
- * }
- */
 
 function readSessions() {
   try {
@@ -24,9 +14,6 @@ function writeSessions(sessions) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(sessions));
 }
 
-/**
- * 1) Write: add a completed session to localStorage
- */
 export function addCompletedSession(durationMinutes, completedAt = new Date()) {
   const minutes = Number(durationMinutes);
 
@@ -39,7 +26,6 @@ export function addCompletedSession(durationMinutes, completedAt = new Date()) {
     durationMinutes: minutes,
   });
 
-  // Optional safety: keep history from growing forever (MVP-friendly)
   if (sessions.length > 500) {
     sessions.splice(0, sessions.length - 500);
   }
@@ -47,26 +33,19 @@ export function addCompletedSession(durationMinutes, completedAt = new Date()) {
   writeSessions(sessions);
 }
 
-/**
- * Helpers for date windows (local time)
- */
 function startOfDayLocal(date = new Date()) {
   const d = new Date(date);
   d.setHours(0, 0, 0, 0);
   return d;
 }
 
-// Week starts Sunday 12:00am local time
 function startOfWeekSundayLocal(date = new Date()) {
   const d = startOfDayLocal(date);
-  const day = d.getDay(); // 0=Sun, 1=Mon, ... 6=Sat
+  const day = d.getDay();
   d.setDate(d.getDate() - day);
   return d;
 }
 
-/**
- * 2) Read+compute: get today's completed session count
- */
 export function getTodaysCompletedCount(now = new Date()) {
   const sessions = readSessions();
 
@@ -82,10 +61,6 @@ export function getTodaysCompletedCount(now = new Date()) {
   }, 0);
 }
 
-/**
- * 3) Read+compute: get this week's completed session count + total minutes
- * Week window: Sunday 12:00am -> next Sunday 12:00am (exclusive)
- */
 export function getThisWeeksStats(now = new Date()) {
   const sessions = readSessions();
 
@@ -105,6 +80,6 @@ export function getThisWeeksStats(now = new Date()) {
       }
       return acc;
     },
-    { weeklyCount: 0, weeklyMinutes: 0 }
+    { weeklyCount: 0, weeklyMinutes: 0 },
   );
 }

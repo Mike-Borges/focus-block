@@ -10,7 +10,7 @@ export default function Header({ onNavigate }) {
 
   const handleNavigate = (page) => {
     onNavigate(page);
-    setIsMenuOpen(false); // Close menu after navigation
+    setIsMenuOpen(false);
   };
 
   return (

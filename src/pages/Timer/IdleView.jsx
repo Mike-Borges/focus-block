@@ -12,20 +12,11 @@ function normalizeInitial(initialMinutes) {
   return PRESETS.includes(initialMinutes) ? initialMinutes : 25;
 }
 
-/**
- * IdleView (Desktop-Home Idle)
- * UI behavior:
- * - One large selected time in the middle
- * - Two small buttons showing the remaining presets
- * - Small buttons are ALWAYS shown in numeric order
- * - Clicking a small button makes it the selected time
- */
 function IdleView({ initialMinutes = 25, onStart, onAddTask }) {
   const [selectedMinutes, setSelectedMinutes] = useState(
     normalizeInitial(initialMinutes),
   );
 
-  // Always derive + sort the small presets
   const smallMinutes = useMemo(() => {
     return PRESETS.filter((m) => m !== selectedMinutes).sort((a, b) => a - b);
   }, [selectedMinutes]);

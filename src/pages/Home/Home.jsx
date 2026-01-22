@@ -6,7 +6,6 @@ import atomicfocusImg from "../../assets/atomicfocus.jpg";
 export default function Home({ onGetStarted }) {
   return (
     <div className="home">
-      {/* Hero section with camera image */}
       <section className="home__hero">
         <h1 className="home__title">Focus, without Friction.</h1>
         <button className="home__cta" onClick={onGetStarted}>
@@ -14,7 +13,6 @@ export default function Home({ onGetStarted }) {
         </button>
       </section>
 
-      {/* Description section */}
       <section className="home__description">
         <p>
           A focus session balances depth and sustainability. It’s long enough to
@@ -24,7 +22,6 @@ export default function Home({ onGetStarted }) {
         </p>
       </section>
 
-      {/* Types of Focus cards */}
       <section className="home__types">
         <h2 className="home__types-title">Types of Focus</h2>
         <div className="home__cards">
@@ -66,7 +63,6 @@ export default function Home({ onGetStarted }) {
         </div>
       </section>
 
-      {/* Quote section */}
       <section className="home__quote">
         <p>"Focus on one thing. Let everything else wait."</p>
       </section>
